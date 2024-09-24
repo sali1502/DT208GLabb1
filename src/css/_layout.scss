@@ -112,7 +112,7 @@ button {
 /* Media queries för kurslista för liten skärm */
 @media only screen and (max-width: 690px) {
 
-    // Döljer rubriker för kurskod och kursplan (th)
+    // Döljer rubrik för kurskod och kursplan (th)
     th.code,
     th.syllabus {
         display: none;
