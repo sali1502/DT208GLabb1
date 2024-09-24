@@ -1,3 +1,4 @@
+// Funktionalitet för att spara och hämta kurser från localstorage
 import { Course } from "./course";
 
 export class storeManager {
