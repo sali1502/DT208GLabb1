@@ -1,0 +1,124 @@
+@use 'base';
+
+* {
+    margin: 0;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 2fr;
+    grid-gap: 0px;
+    background-color: base.$white;
+    margin-top: 20vh;
+    margin: 0 auto 0 auto;
+    opacity: 0.8;
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    font: 100% base.$font-stack;
+    background-color: base.$white;
+    font-size: 0.9em;
+    text-align: center;
+    margin: 0 auto 0 auto;
+    height: 100%;
+    width: 100%;
+}
+
+.addCourseContainer {
+    background-color: base.$dark-blue;
+    margin: 0 auto 0 auto;
+    max-width: 700px;
+    padding-top: 4vh;
+    border-radius: 4px;
+    height: 100%;
+    width: 100%;
+}
+
+#courseTable {
+    font: 100% base.$font-stack;
+    background-color: base.$white;
+    color: base.$primary-text;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+    max-width: 700px;
+    text-align: left;
+    margin: 0 auto 0 auto;
+    width: 100%;
+    height: auto;
+}
+
+h1 {
+    font: 100% base.$font-stack;
+    font-size: 2em;
+    margin-top: 6vh;
+    margin-bottom: 4vh;
+    color: base.$primary-heading;
+    text-align: center;
+}
+
+p {
+    margin-top: 2vh;
+    font: 100% base.$font-stack;
+    font-size: 0.8em;
+    line-height: 1.5em;
+    color: base.$primary-text;
+    text-align: left;
+}
+
+form {
+    color: base.$white;
+    text-align: left;
+    font-size: 0.8em;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 10px;
+    height: 100%;
+    width: 100%;
+}
+
+input[type=text] {
+    width: 100%;
+    padding: 5px;
+    border-radius: 4px;
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+}
+
+button {
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+    margin-left: 0.5vw;
+}
+
+#progressionError {
+    color: base.$error;
+    width: 100%;
+    background-color: base.$white;
+    margin: 0 auto 0 auto;
+    max-width: 700px;
+    text-align: center;
+    padding-bottom: 5vh;
+}
+
+/* Media queries för kurslista för liten skärm */
+@media only screen and (max-width: 690px) {
+
+    // Döljer rubriker för kurskod och kursplan (th)
+    th.code,
+    th.syllabus{
+        display: none;
+    }
+
+    // Döljer motsvarande td-celler
+    td:nth-child(1),
+    td:nth-child(4) {
+        display: none;
+    }
+}

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DT208G, Moment 1</title>
+    <link rel="stylesheet" href="css/main.scss">
+    <script src="./js/main.ts" type="module"></script>
+</head>
+
+<body>
+    <div class="grid-container">
+
+
+        <h1>Lägg till kurs</h1>
+
+        <div class="addCourseContainer">
+
+            <!-- Formulär för att lägga till kurser -->
+            <form id="addCourseForm">
+                <label for="code">Kurskod</label>
+                <input type="text" id="code" placeholder="Kurskod" required>
+                <label for="name">Kursnamn</label>
+                <input type="text" id="name" placeholder="Kursnamn" required>
+                <label for="level">Nivå</label>
+                <input type="text" id="level" placeholder="A, B eller C" required>
+                <label for="syllabus">Kursplan</label>
+                <input type="text" id="syllabus" placeholder="Kursplan" required>
+                <button type="submit">Spara</button>
+                <button type="button" id="resetButton">Ångra</button>
+            </form>
+        </div>
+
+
+        <h1>Kurser</h1>
+
+        <!-- Tabell för att skriva ut kurser -->
+        <table id="courseTable">
+            <thead>
+                <tr>
+                    <th class="code">Kurskod</th>
+                    <th class="name">Kursnamn</th>
+                    <th class="level">Nivå</th>
+                    <th class="syllabus">Kursplan</th>
+                    <th class="deleteUpdateBtn">Åtgärder</th>
+                </tr>
+            </thead>
+            <tbody id="displayCourseTable"></tbody>
+        </table>
+
+        <div id="progressionError"></div>
+
+    </div>
+</body>
+
+</html>

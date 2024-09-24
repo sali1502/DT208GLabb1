@@ -1,0 +1,18 @@
+// Variabel font
+$font-stack: verdana, sans-serif;
+
+// Variabler "color functions"
+$primary-blue: #487272;
+$dark-blue: darken($primary-blue, 30%);
+$light-blue: lighten($primary-blue, 30%);
+
+// Variabler färger
+$black: #000;
+$white: #fff;
+$red: red;
+
+// Variabler ljust tema
+$primary-text: $black;
+$primary-bg: $white;
+$primary-heading: $dark-blue;
+$error: $red;
