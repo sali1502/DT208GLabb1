@@ -21,7 +21,7 @@ class Main {
   setupEventListeners(): void {
     const form = document.querySelector("#addCourseForm");
 
-    // Skapa element för error-meddelande för unik kurskod
+    // Felmeddelande för ej unik kurskod
     this.errorMessage = document.createElement("p");
     this.errorMessage.id = "errorMessage";
     this.errorMessage.style.color = "white";
@@ -39,10 +39,10 @@ class Main {
       const progression = this.progression.value as Progression;
       const syllabus = this.syllabus.value;
 
-      // Rensar gamla errormeddelanden
+      // Rensa gamla errormeddelanden
       this.errorMessage.textContent = "";
 
-      // Kontrollerar progression
+      // Kontrollera progression
       if (!this.checkLevel(progression)) {
         return;
       }
@@ -54,26 +54,25 @@ class Main {
         form.appendChild(this.errorMessage);
         return;
       }
-      // Kontrollera om kurskoden är unik vid uppdatering av kurs
       if (this.editingIndex !== null) {
         this.updateCourse(code, name, progression, syllabus);
       } else {
         this.createCourse(code, name, progression, syllabus);
       }
 
-      // Visa kurserna och återställ formuläret
+      // Visa kurser och återställ formulär
       this.displayCourses();
       this.resetForm();
     });
 
-    // Återställer formulär vid klick på Ångra-knapp
+    // Återställ formulär vid klick på Ångra-knapp
     this.resetButton = document.querySelector("#resetButton") as HTMLButtonElement;
     this.resetButton.addEventListener("click", () => {
       this.resetForm();
     });
   }
 
-  // Tömmer formuläret
+  // Töm formulär
   resetForm(): void {
     this.code.value = "";
     this.name.value = "";
@@ -82,14 +81,14 @@ class Main {
     this.editingIndex = null;
   }
 
-  // Kollar om progression är A, B eller C 
+  // Koll om progression är A, B eller C 
   checkLevel(progression: Progression): boolean {
     const existingError = document.querySelector("#progressionError");
     if (existingError) {
       existingError.remove();
     }
 
-    // Errormeddelande för felaktig input i formulär för progression
+    // Felmeddelande för felaktig input för progression
     if (progression !== "A" && progression !== "B" && progression !== "C") {
       const errorMessage = document.createElement("p");
       errorMessage.id = "progressionError";
@@ -101,23 +100,23 @@ class Main {
     }
   }
 
-  // Kollar om kurskod är unik
+  // Koll om kurskod är unik
   isCodeUnique(code: string): boolean {
     return !this.courseArr.some(course => course.code === code);
   }
 
-  // Lägger till kurs i array och sparar i localstorage
+  // Lägg till kurs i array och spara i localstorage
   addCourse(course: Course): void {
     this.courseArr.push(course);
     storeManager.saveCourses(this.courseArr);
   }
 
-  // Skapar ny kurs
+  // Skapa ny kurs
   createCourse(code: string, name: string, progression: Progression, syllabus: string): void {
     this.addCourse(new Course(code, name, progression, syllabus));
   }
 
-  // Uppdaterar kurs och lägger till i array samt sparar i localstorage
+  // Uppdatera kurs och lägg till i array samt spara i localstorage
   updateCourse(code: string, name: string, progression: Progression, syllabus: string): void {
     if (this.editingIndex !== null) {
       this.courseArr[this.editingIndex] = new Course(code, name, progression, syllabus);
@@ -127,7 +126,7 @@ class Main {
     }
   }
 
-  // Skriver ut tabell till skärmen med DOM
+  // Skriv ut kurser i tabell till skärmen med DOM
   displayCourses(): void {
     const tbody = document.getElementById("displayCourseTable") as HTMLTableSectionElement;
     tbody.innerHTML = "";
@@ -149,7 +148,7 @@ class Main {
 
       const syllabus = document.createElement("td");
 
-      // Skapar länk till kursplan 
+      // Skapa länk till kursplan 
       if (course.syllabus.startsWith("http")) {
 
         const syllabusLink = document.createElement("a");
