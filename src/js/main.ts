@@ -1,0 +1,1 @@
+/* Moment 1, DT208G TypeScript, Åsa Lindskog sali1502@student.miun.se */
